@@ -1,0 +1,17 @@
+import { Router } from "express";
+import "dotenv/config"
+console.log(process.env.GOOGLE_BOOKS_API_KEY)
+
+const router = Router();
+
+router.get("/search", async (req, res) => {
+
+
+    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${req.query.q}&key=${process.env.GOOGLE_BOOKS_API_KEY}`)
+
+    const data = await response.json()
+
+    res.json({data})
+})
+
+export default router;
