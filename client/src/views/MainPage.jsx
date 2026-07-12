@@ -14,9 +14,6 @@ export default function MainPage (){
 
         navigate(`/searchresults?q=${searchInput}`)
 
-
-
-
     }
 
     return (
@@ -26,6 +23,7 @@ export default function MainPage (){
             <input value={searchInput} onChange={(event) => setSearchInput(event.target.value)} type="text" placeholder="Search for a title..."></input>
             <button type="submit">Search</button>
         </form>
+        <button type="button" onClick={() => navigate(`/savedbooks`)}>Saved Books</button>
         <Footer />
 
         </>
