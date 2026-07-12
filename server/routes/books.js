@@ -11,7 +11,7 @@ router.get("/search", async (req, res) => {
 
     const data = await response.json()
 
-    res.json({data})
+    res.json(data)
 })
 
 export default router;
