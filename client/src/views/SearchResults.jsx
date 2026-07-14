@@ -16,14 +16,24 @@ export default function SearchResults (){
         
             async function fetchBooks (){
                 setIsLoading(true)
+                setError(null)
+                setBooks([])
 
                 try {
             const response = await fetch(`http://localhost:3000/api/books/search?q=${query}`)
-            const data = await response.json()
 
-            if(!response.ok) {
+             if(!response.ok) {
                 throw new Error("Something went wrong.")
             }
+            
+            const data = await response.json()
+
+            if(data.error){
+                throw new Error(data.error.message)
+            }
+            console.log(data)
+
+           
 
             setBooks(data.items)
             setIsLoading(false)
@@ -33,6 +43,7 @@ export default function SearchResults (){
 
         catch (err){
             setError(err.message)
+            setIsLoading(false)
         }
         }
 
@@ -44,7 +55,7 @@ export default function SearchResults (){
         <>
         {isLoading && <p>Loading...</p>}
         {error && <p>{error}</p>}
-        {books.map((book) => (
+        {books && books.map((book) => (
             <BookCard key={book.id} book={book}/>
         ))}
         </>

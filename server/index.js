@@ -1,9 +1,12 @@
 import "dotenv/config"
 import express from "express";
 import booksRouter from "./routes/books.js"
+import cors from "cors"
+
 
 
 const app = express();
+app.use(cors())
 
 const port = 3000;
 
