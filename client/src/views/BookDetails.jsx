@@ -73,6 +73,35 @@ export default function BookDetails (){
 
     }, [id])
 
+    async function handleSave(){
+
+
+            try {
+                const result = await fetch("http://localhost:3000/api/saved", {
+            
+            method: 'POST',
+        headers: {
+        
+            'Content-Type': 'application/json',
+            },
+        body: JSON.stringify({
+            google_books_id: book.id,
+            title: book.volumeInfo.title,
+            author: book.volumeInfo.authors?.[0],
+            thumbnail: book.volumeInfo.imageLinks?.thumbnail
+        })
+        })
+        console.log(result)
+        if(!result.ok) throw new Error("Could not save book")
+            }
+
+            catch(err){
+                console.error(err.message)
+            }
+        
+
+    }
+
     
 
     return (
@@ -90,7 +119,7 @@ export default function BookDetails (){
         <p>{book.volumeInfo.description}</p>
         <img src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title}/>
         <div>
-            <button>Save</button>
+            <button onClick={() => handleSave()}>Save</button>
             <button>Delete</button>
             <button onClick={() => handleSimilar()}>Find similar</button>
         </div>

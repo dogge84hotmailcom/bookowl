@@ -1,7 +1,6 @@
 import { Router } from "express"
-import pool from "../db"
+import pool from "../db.js"
 
-// jag höll på att sätta upp routes här till databasen för att hämta savedBooks
 
 const router = Router()
 
@@ -32,9 +31,9 @@ router.post("/", async (req,res) => {
     }
 })
 
-router.delete("/:id", async (req, res)=> {
+router.delete("/:google_books_id", async (req, res)=> {
     try {
-        const result = await pool.query("DELETE FROM saved_books WHERE id = $1", [req.params.id])
+        const result = await pool.query("DELETE FROM saved_books WHERE google_books_id = $1", [req.params.google_books_id])
 
         if(result.rowCount === 0){
             res.status(404).json({error: "Book not found"})
