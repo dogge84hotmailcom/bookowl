@@ -98,8 +98,20 @@ export default function BookDetails (){
             catch(err){
                 console.error(err.message)
             }
-        
+    }
 
+    async function handleDelete(){
+
+        try {
+            const result = await fetch(`http://localhost:3000/api/saved/:${book.id}`, {
+                method: 'DELETE'
+            })
+            if(!result.ok) throw new Error("Could not delete title")
+        }
+
+        catch(err){
+            console.log(err.message)
+        }
     }
 
     
@@ -120,7 +132,7 @@ export default function BookDetails (){
         <img src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title}/>
         <div>
             <button onClick={() => handleSave()}>Save</button>
-            <button>Delete</button>
+            <button onClick ={() => handleDelete()}>Delete</button>
             <button onClick={() => handleSimilar()}>Find similar</button>
         </div>
         </div>
