@@ -6,13 +6,33 @@ const router = Router()
 
 router.get("/", async (req, res)=> {
     try {
-        const result = await pool.query("GET * FROM saved_books")
+        const result = await pool.query("SELECT * FROM saved_books")
         res.json(result.rows)
         
     }
 
     catch (err){
         res.status(500).json({ error: err.message })
+        console.log(err)
+    }
+    
+})
+
+router.get("/:google_books_id", async (req, res)=> {
+    try {
+        const result = await pool.query("SELECT * FROM saved_books WHERE google_books_id = $1", [req.params.google_books_id])
+        if(result.rows.length > 0){
+            res.json({isSaved : true})
+        }
+        else {
+            res.json({isSaved: false})
+        }
+        
+    }
+
+    catch (err){
+        res.status(500).json({ error: err.message })
+        console.log(err)
     }
     
 })
