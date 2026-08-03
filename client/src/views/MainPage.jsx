@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import Footer from "../components/Footer.jsx"
 
 
 export default function MainPage (){
@@ -24,7 +23,7 @@ export default function MainPage (){
             <button type="submit">Search</button>
         </form>
         <button type="button" onClick={() => navigate(`/savedbooks`)}>Saved Books</button>
-        <Footer />
+        
 
         </>
     )
