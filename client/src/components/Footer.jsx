@@ -2,6 +2,6 @@
 export default function Footer(){
 
     return (
-        <p>Testing the footer</p>
+        <p>&#169; 2026 BookOwl</p>
     )
 }
