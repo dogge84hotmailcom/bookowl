@@ -17,7 +17,7 @@ export default function MainPage (){
 
     return (
         <>
-        <p>Testing MainPage</p>
+        
         <form onSubmit={(e) => handleSearch(e)}>
             <input value={searchInput} onChange={(event) => setSearchInput(event.target.value)} type="text" placeholder="Search for a title..."></input>
             <button type="submit">Search</button>

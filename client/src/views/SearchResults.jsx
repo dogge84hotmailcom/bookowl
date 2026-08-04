@@ -37,7 +37,7 @@ export default function SearchResults (){
 
            
 
-            setBooks(data.items.filter(book => book.volumeInfo.imageLinks?.thumbnail))
+            setBooks((data.items ?? []).filter(book => book.volumeInfo.imageLinks?.thumbnail))
             setIsLoading(false)
             setStartIndex(prev => prev + 10)
 
@@ -107,6 +107,7 @@ export default function SearchResults (){
         <>
         {isLoading && <p>Loading...</p>}
         {error && <p>{error}</p>}
+        {!isLoading && books.length === 0 && !error && <p>No books found</p>}
         {books && books.map((book) => (
             <BookCard key={book.id} book={book}/>
         ))}

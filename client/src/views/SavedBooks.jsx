@@ -27,6 +27,7 @@ useEffect(()=> {
     catch(err){
         console.log(err.message)
         setError(err.message)
+        setIsLoading(false)
     }
     }
 
@@ -36,9 +37,10 @@ useEffect(()=> {
 
     return (
         <>
-        <p>Testing SavedBooks page</p>
-        {isLoading && <div>Loading books...</div>}
+        
+        {isLoading && !error && <div>Loading books...</div>}
         {error && <div>{error}</div>}
+        {!isLoading && books.length === 0 && <p>No saved books yet</p>}
         {books && books.map(book => {
             return <SavedBookCard key={book.google_books_id} book={book}/>
         })}

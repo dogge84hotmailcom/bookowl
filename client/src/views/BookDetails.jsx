@@ -17,7 +17,7 @@ export default function BookDetails (){
 
         console.log(book.volumeInfo.categories)
 
-
+        // Remove categories that are too general
         if(book.volumeInfo.categories){
             const searchString = book.volumeInfo.categories
             .map(category => category.split(" / "))
@@ -50,7 +50,7 @@ export default function BookDetails (){
                 const response = await fetch(`http://localhost:3000/api/books/${id}`)
 
                 if(!response.ok){
-                    throw new Error("Something went wrong.")
+                    throw new Error("Could not find book details")
                 }
                 const data = await response.json()
                 console.log(data)
@@ -77,7 +77,7 @@ export default function BookDetails (){
                 
                 const response = await fetch(`http://localhost:3000/api/saved/${id}`)
                 if(!response.ok){
-                    throw new Error("Could not check if title is saved already.")
+                    throw new Error("Could not check if title is saved already")
                 }
                 const data = await response.json()
 
@@ -119,6 +119,7 @@ export default function BookDetails (){
 
             catch(err){
                 console.error(err.message)
+                setError(err.message)
             }
 
             
@@ -136,6 +137,7 @@ export default function BookDetails (){
 
         catch(err){
             console.log(err.message)
+            setError(err.message)
         }
 
         
@@ -146,7 +148,6 @@ export default function BookDetails (){
     return (
         <div>
 
-        <p>Testing BookDetails page</p>
         {loading && <p>Loading book...</p>}
         {error && <p>{error}</p>}
         {book && 
