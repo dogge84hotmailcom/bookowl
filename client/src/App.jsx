@@ -6,7 +6,6 @@ import BookDetails from "./views/BookDetails.jsx"
 import MainPage from "./views/MainPage.jsx"
 import SavedBooks from "./views/SavedBooks.jsx"
 import SearchResults from "./views/SearchResults.jsx"
-import './App.css'
 
 function App() {
 

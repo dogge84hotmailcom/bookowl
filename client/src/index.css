@@ -1,9 +1,181 @@
 
-.logo-container {
+:root{
+  
+  /* CSS HEX */
+--tea-green: #d3f9b5ff;
+--lime-cream: #ddfc74ff;
+--copperwood: #bf6900ff;
+--rich-mahogany: #3d0c11ff;
+--black: #000000ff;
+
+/* CSS HSL */
+--tea-green: hsla(94, 85%, 84%, 1);
+--lime-cream: hsla(74, 96%, 72%, 1);
+--copperwood: hsla(33, 100%, 37%, 1);
+--rich-mahogany: hsla(354, 67%, 14%, 1);
+--black: hsla(0, 0%, 0%, 1);
+
+/* CSS HEX */
+--amber-gold: #f3b700ff;
+--orange: #faa300ff;
+--amber-earth: #e57c04ff;
+--blaze-orange: #ff6201ff;
+--blazing-flame: #f63e02ff;
+
+/* CSS HSL */
+--amber-gold: hsla(45, 100%, 48%, 1);
+--orange: hsla(39, 100%, 49%, 1);
+--amber-earth: hsla(32, 97%, 46%, 1);
+--blaze-orange: hsla(23, 100%, 50%, 1);
+--blazing-flame: hsla(15, 98%, 49%, 1);
+
+/* CSS HEX */
+--coffee-bean: #220901ff;
+--dark-garnet: #621708ff;
+--oxblood: #941b0cff;
+--rusty-spice: #bc3908ff;
+--orange: #f6aa1cff;
+
+/* CSS HSL */
+--coffee-bean: hsla(15, 94%, 7%, 1);
+--dark-garnet: hsla(10, 85%, 21%, 1);
+--oxblood: hsla(7, 85%, 31%, 1);
+--rusty-spice: hsla(16, 92%, 38%, 1);
+--orange: hsla(39, 92%, 54%, 1);
+
+/* Mitt val */
+ --background: #FDF6EC;      /* varm off-white - bakgrund */
+  --text: #220901ff;          /* coffee-bean - all text */
+  --primary: #bc3908ff;       /* rusty-spice - knappar, länkar */
+  --accent: #f6aa1cff;        /* orange - hover, highlights */
+  --surface: #941b0cff;       /* oxblood - header, footer */
+
+/*
+background — hela sidans bakgrund
+surface — ytor ovanpå bakgrunden (header, kort)
+primary — knappar och klickbara element
+accent — hover och highlights
+text — all text
+*/
+
+/* VARIABLES */
+--background: #FDF6EC;
+--text: #220901ff;
+--primary: #bc3908ff;
+--accent: #f6aa1cff;
+--surface: #941b0cff;
+
+--font-heading: 'Merriweather', serif;
+--font-body: 'Nunito', sans-serif;
+
+}
+
+
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE / TYPOGRAPHY */
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  background-color: var(--background);
+  color: #000;
+  font-size: 1rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100vh;
 }
 
 a {
   text-decoration: none;
 }
+
+/* LAYOUT */
+
+form {
+  padding: 0 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form input {
+   flex-grow: 1;
+   height: 24px;
+   border: 1px solid black;
+   border-radius: 5px;
+   margin: 3px 2px;
+}
+
+input:focus {
+  border: 2px solid black;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+form button {
+  background-color: var(--primary);
+  color: var(--accent);
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px 4px;
+}
+
+.savedbooks-btn-mainpage {
+  background-color: var(--primary);
+  color: var(--accent);
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px 4px;
+}
+
+/* HEADER */
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--surface);
+  color: var(--accent);
+
+}
+
+
+
+/* FOOTER */
+
+.footer {
+  padding: 1 rem;
+  background-color: var(--surface);
+  color: var(--accent);
+  text-align: center;
+  margin-top: auto;
+}
+
+/* ===========================
+   COMPONENTS
+   =========================== */
+
+/* ===========================
+   VIEWS
+   =========================== */
+
+/* ===========================
+   MEDIA QUERIES
+   =========================== */
