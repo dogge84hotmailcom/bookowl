@@ -172,9 +172,20 @@ form button {
    COMPONENTS
    =========================== */
 
-/* ===========================
-   VIEWS
-   =========================== */
+/* VIEWS */
+
+.books-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 1rem;
+
+}
+
+.book-card {
+  background-color: var(--accent);
+  
+}
 
 /* ===========================
    MEDIA QUERIES

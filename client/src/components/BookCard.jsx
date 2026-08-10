@@ -7,7 +7,7 @@ export default function BookCard({book}){
 
     return (
         <>
-        <div onClick={() => navigate(`/bookdetails/${book.id}`)}>
+        <div className="book-card" onClick={() => navigate(`/bookdetails/${book.id}`)}>
         <h2>{book.volumeInfo.title}</h2>
         <p>{book.volumeInfo.authors?.[0]}</p>
         <p>{book.volumeInfo.publishedDate}</p>

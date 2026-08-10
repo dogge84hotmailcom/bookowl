@@ -16,13 +16,13 @@ export default function SearchResults (){
     useEffect(()=> {
 
         
-            async function fetchBooks (){
+            async function fetchBooks (retry = true){
                 setIsLoading(true)
                 setError(null)
                 setBooks([])
 
                 try {
-            const response = await fetch(`http://localhost:3000/api/books/search?q=${query}`)
+            const response = await fetch(`http://localhost:3000/api/books/search?q=${query}&startIndex=0`)
 
              if(!response.ok) {
                 throw new Error("Something went wrong.")
@@ -45,6 +45,9 @@ export default function SearchResults (){
         }
 
         catch (err){
+            if(retry){
+                setTimeout(()=> fetchBooks(false), 1000)
+            }
             setError(err.message)
             setIsLoading(false)
         }
@@ -108,9 +111,11 @@ export default function SearchResults (){
         {isLoading && <p>Loading...</p>}
         {error && <p>{error}</p>}
         {!isLoading && books.length === 0 && !error && <p>No books found</p>}
+        <div className="books-grid">
         {books && books.map((book) => (
             <BookCard key={book.id} book={book}/>
         ))}
+        </div>
         {loadMoreError && <p>{loadMoreError}</p>}
         <button onClick={()=> {loadMoreBooks()}}>Load more...</button>
         </>
