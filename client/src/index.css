@@ -85,6 +85,16 @@ html {
   min-height: 100vh;
 }
 
+main {
+  flex-grow: 1;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 body {
   background-color: var(--background);
   color: #000;
@@ -144,6 +154,16 @@ form button {
   padding: 2px 4px;
 }
 
+.details-btn {
+  background-color: var(--primary);
+  color: var(--accent);
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px 4px;
+  margin: 10px 5px;
+}
+ 
+
 /* HEADER */
 
 .logo-container {
@@ -182,9 +202,23 @@ form button {
 
 }
 
+.book-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .book-card {
-  background-color: var(--accent);
   
+  height: 200px;
+  
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ===========================

@@ -151,17 +151,17 @@ export default function BookDetails (){
         {loading && <p>Loading book...</p>}
         {error && <p>{error}</p>}
         {book && 
-        <div>
+        <div className="book-details">
         <h1>{book.volumeInfo.title}</h1>
         <p>{book.volumeInfo.subtitle}</p>
         <h2>{book.volumeInfo.authors?.[0]}</h2>
         <p>{book.volumeInfo.publishedDate}</p>
-        <p>{book.volumeInfo.description}</p>
+        <p>{book.volumeInfo.description?.replace(/<[^>]*>/g, ' ')}</p>
         <img src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title}/>
         <div>
-            { !isSaved && <button onClick={() => handleSave()}>Save</button>}
-            { isSaved && <button onClick ={() => handleDelete()}>Delete</button>}
-            <button onClick={() => handleSimilar()}>Find similar</button>
+            { !isSaved && <button className="details-btn" onClick={() => handleSave()}>Save</button>}
+            { isSaved && <button className="details-btn" onClick ={() => handleDelete()}>Delete</button>}
+            <button className="details-btn" onClick={() => handleSimilar()}>Find similar</button>
         </div>
         </div>
         

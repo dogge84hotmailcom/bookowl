@@ -41,9 +41,11 @@ useEffect(()=> {
         {isLoading && !error && <div>Loading books...</div>}
         {error && <div>{error}</div>}
         {!isLoading && books.length === 0 && <p>No saved books yet</p>}
+        <div className="books-grid">
         {books && books.map(book => {
             return <SavedBookCard key={book.google_books_id} book={book}/>
         })}
+        </div>
         </>
     )
 }
