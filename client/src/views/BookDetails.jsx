@@ -143,11 +143,8 @@ export default function BookDetails (){
         
     }
 
-    
-
     return (
-        <div>
-
+        <div className="details-container">
         {loading && <p>Loading book...</p>}
         {error && <p>{error}</p>}
         {book && 
@@ -156,12 +153,16 @@ export default function BookDetails (){
         <p>{book.volumeInfo.subtitle}</p>
         <h2>{book.volumeInfo.authors?.[0]}</h2>
         <p>{book.volumeInfo.publishedDate}</p>
+        <div className="details-img-desc-btn">
         <p>{book.volumeInfo.description?.replace(/<[^>]*>/g, ' ')}</p>
+        <div className="details-img-btn">
         <img src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title}/>
-        <div>
+        <div className="details-buttons">
             { !isSaved && <button className="details-btn" onClick={() => handleSave()}>Save</button>}
             { isSaved && <button className="details-btn" onClick ={() => handleDelete()}>Delete</button>}
             <button className="details-btn" onClick={() => handleSimilar()}>Find similar</button>
+        </div>
+        </div>
         </div>
         </div>
         

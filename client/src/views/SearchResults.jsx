@@ -108,7 +108,7 @@ export default function SearchResults (){
 
     return (
         <>
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <p className="loading">Loading...</p>}
         {error && <p>{error}</p>}
         {!isLoading && books.length === 0 && !error && <p>No books found</p>}
         <div className="books-grid">
@@ -117,7 +117,7 @@ export default function SearchResults (){
         ))}
         </div>
         {loadMoreError && <p>{loadMoreError}</p>}
-        <button onClick={()=> {loadMoreBooks()}}>Load more...</button>
+        <button className="loadmore-btn" onClick={()=> {loadMoreBooks()}}>Load more</button>
         </>
 
     )
