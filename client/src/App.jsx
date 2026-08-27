@@ -14,7 +14,7 @@ function App() {
   return (
     <>
     <Header />
-    <main>
+    <main role="main">
       <Routes>
       <Route path="/" element={<MainPage />}/>
       <Route path="/searchresults" element={<SearchResults />}/>

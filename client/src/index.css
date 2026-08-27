@@ -1,56 +1,55 @@
-
-:root{
-  
+:root {
   /* CSS HEX */
---tea-green: #d3f9b5ff;
---lime-cream: #ddfc74ff;
---copperwood: #bf6900ff;
---rich-mahogany: #3d0c11ff;
---black: #000000ff;
+  --tea-green: #d3f9b5ff;
+  --lime-cream: #ddfc74ff;
+  --copperwood: #bf6900ff;
+  --rich-mahogany: #3d0c11ff;
+  --black: #000000ff;
 
-/* CSS HSL */
---tea-green: hsla(94, 85%, 84%, 1);
---lime-cream: hsla(74, 96%, 72%, 1);
---copperwood: hsla(33, 100%, 37%, 1);
---rich-mahogany: hsla(354, 67%, 14%, 1);
---black: hsla(0, 0%, 0%, 1);
+  /* CSS HSL */
+  --tea-green: hsla(94, 85%, 84%, 1);
+  --lime-cream: hsla(74, 96%, 72%, 1);
+  --copperwood: hsla(33, 100%, 37%, 1);
+  --rich-mahogany: hsla(354, 67%, 14%, 1);
+  --black: hsla(0, 0%, 0%, 1);
 
-/* CSS HEX */
---amber-gold: #f3b700ff;
---orange: #faa300ff;
---amber-earth: #e57c04ff;
---blaze-orange: #ff6201ff;
---blazing-flame: #f63e02ff;
+  /* CSS HEX */
+  --amber-gold: #f3b700ff;
+  --orange: #faa300ff;
+  --amber-earth: #e57c04ff;
+  --blaze-orange: #ff6201ff;
+  --blazing-flame: #f63e02ff;
 
-/* CSS HSL */
---amber-gold: hsla(45, 100%, 48%, 1);
---orange: hsla(39, 100%, 49%, 1);
---amber-earth: hsla(32, 97%, 46%, 1);
---blaze-orange: hsla(23, 100%, 50%, 1);
---blazing-flame: hsla(15, 98%, 49%, 1);
+  /* CSS HSL */
+  --amber-gold: hsla(45, 100%, 48%, 1);
+  --orange: hsla(39, 100%, 49%, 1);
+  --amber-earth: hsla(32, 97%, 46%, 1);
+  --blaze-orange: hsla(23, 100%, 50%, 1);
+  --blazing-flame: hsla(15, 98%, 49%, 1);
 
-/* CSS HEX */
---coffee-bean: #220901ff;
---dark-garnet: #621708ff;
---oxblood: #941b0cff;
---rusty-spice: #bc3908ff;
---orange: #f6aa1cff;
+  /* CSS HEX */
+  --coffee-bean: #220901ff;
+  --dark-garnet: #621708ff;
+  --oxblood: #941b0cff;
+  --rusty-spice: #bc3908ff;
+  --orange: #f6aa1cff;
 
-/* CSS HSL */
---coffee-bean: hsla(15, 94%, 7%, 1);
---dark-garnet: hsla(10, 85%, 21%, 1);
---oxblood: hsla(7, 85%, 31%, 1);
---rusty-spice: hsla(16, 92%, 38%, 1);
---orange: hsla(39, 92%, 54%, 1);
+  /* CSS HSL */
+  --coffee-bean: hsla(15, 94%, 7%, 1);
+  --dark-garnet: hsla(10, 85%, 21%, 1);
+  --oxblood: hsla(7, 85%, 31%, 1);
+  --rusty-spice: hsla(16, 92%, 38%, 1);
+  --orange: hsla(39, 92%, 54%, 1);
 
-/* Mitt val */
- --background: #FDF6EC;      /* varm off-white - bakgrund */
-  --text: #220901ff;          /* coffee-bean - all text */
-  --primary: #bc3908ff;       /* rusty-spice - knappar, länkar */
-  --accent: #f6aa1cff;        /* orange - hover, highlights */
-  --surface: #941b0cff;       /* oxblood - header, footer */
+  /* Mitt val */
+  --background: #fdf6ec; /* varm off-white - bakgrund */
+  --text: #220901ff; /* coffee-bean - all text */
+  --primary: #bc3908ff; /* rusty-spice - knappar, länkar */
+  /*--accent: #f6aa1cff; */ /* orange - hover, highlights */
+  --accent: #fff; /* vit - textfärg i knappar */
+  --surface: #941b0cff; /* oxblood - header, footer */
 
-/*
+  /*
 background — hela sidans bakgrund
 surface — ytor ovanpå bakgrunden (header, kort)
 primary — knappar och klickbara element
@@ -58,18 +57,16 @@ accent — hover och highlights
 text — all text
 */
 
-/* VARIABLES */
---background: #FDF6EC;
---text: #220901ff;
---primary: #bc3908ff;
---accent: #f6aa1cff;
---surface: #941b0cff;
+  /* VARIABLES */
+  --background: #fdf6ec;
+  --text: #220901ff;
+  --primary: #bc3908ff;
+  --accent: #fdf6ec;
+  --surface: #7a1608;
 
---font-heading: 'Merriweather', serif;
---font-body: 'Nunito', sans-serif;
-
+  --font-heading: "Merriweather", serif;
+  --font-body: "Nunito", sans-serif;
 }
-
 
 /* RESET */
 
@@ -120,11 +117,11 @@ form {
 }
 
 form input {
-   flex-grow: 1;
-   height: 24px;
-   border: 1px solid black;
-   border-radius: 5px;
-   margin: 3px 2px;
+  flex-grow: 1;
+  height: 24px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 3px 2px;
 }
 
 input:focus {
@@ -139,7 +136,7 @@ input:focus {
 }
 
 .loadmore-btn:hover {
-   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .loadmore-btn {
@@ -155,7 +152,7 @@ input:focus {
 }
 
 form button:hover {
-   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 form button {
@@ -209,10 +206,14 @@ form button {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
- 
 
 /* HEADER */
 
@@ -230,10 +231,8 @@ form button {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: bold;
-  color: var(--accent);
+  color: #f6aa1c;
 }
-
-
 
 /* FOOTER */
 
@@ -251,23 +250,42 @@ form button {
 
 /* VIEWS */
 
+.hero {
+  background-image: url("");
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
 .books-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
   padding: 1rem;
-
 }
 
 .book-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: 128px;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
 .book-card {
-  cursor: pointer;
-  height: 200px;
+  /*height: 200px;*/
+  /*cursor: pointer*/
 }
 
 .book-details {
@@ -284,42 +302,51 @@ form button {
 }
 
 .details-img-desc-btn p {
+  text-align: left;
+  margin-top: 1rem;
+  padding: 1rem;
+}
 
-    text-align: left;
-    margin-top: 1rem;
-    padding: 1rem;
-  }
+.details-buttons {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
 
-  .details-buttons {
-    margin-top: 1rem;
-    display: flex; 
-    flex-direction: row; 
-    gap: 0.5rem;
-  }
+.details-img-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  
-  .details-img-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  border-left: 4px solid #c62828;
+  margin: 1rem 0;
+  text-align: center;
+}
 
-
+.info-message {
+  color: var(--text);
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+}
 
 /* MEDIA QUERIES */
 
-@media screen and (min-width: 768px){
-
-  
-
-  .details-img-desc-btn{
+@media screen and (min-width: 768px) {
+  .details-img-desc-btn {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
 
   .details-img-desc-btn p {
-
     width: 50%;
     text-align: left;
     margin-top: 1rem;
@@ -332,6 +359,4 @@ form button {
   .logo-container span {
     font-size: 2.5rem;
   }
-
-
 }

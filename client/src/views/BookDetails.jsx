@@ -146,7 +146,7 @@ export default function BookDetails (){
     return (
         <div className="details-container">
         {loading && <p>Loading book...</p>}
-        {error && <p>{error}</p>}
+        {error && <p className="error-message">{error}</p>}
         {book && 
         <div className="book-details">
         <h1>{book.volumeInfo.title}</h1>

@@ -37,7 +37,7 @@ export default function SearchResults (){
 
            
 
-            setBooks((data.items ?? []).filter(book => book.volumeInfo.imageLinks?.thumbnail))
+            setBooks((data.items ?? []).filter(book => book.volumeInfo.imageLinks?.thumbnail && book.volumeInfo.description))
             setIsLoading(false)
             setStartIndex(prev => prev + 10)
 
@@ -85,7 +85,8 @@ export default function SearchResults (){
             console.log("before setBooks")
             setBooks(prev => {
                 const existingIds = new Set(prev.map(book => book.id))
-                const newBooks = data.items.filter(book => !existingIds.has(book.id) && book.volumeInfo.imageLinks?.thumbnail)
+                const newBooks = data.items.filter(book => !existingIds.has(book.id) && book.volumeInfo.imageLinks?.thumbnail
+                    && book.volumeInfo.description)
                 return [...prev, ...newBooks]
             })
             console.log("after setBooks")
@@ -108,15 +109,15 @@ export default function SearchResults (){
 
     return (
         <>
-        {isLoading && <p className="loading">Loading...</p>}
-        {error && <p>{error}</p>}
-        {!isLoading && books.length === 0 && !error && <p>No books found</p>}
+        {isLoading && <p className="loading" aria-live="polite">Loading...</p>}
+        {error && <p className="error-message">{error}</p>}
+        {!isLoading && books.length === 0 && !error && <p className="info-message">No books found</p>}
         <div className="books-grid">
         {books && books.map((book) => (
             <BookCard key={book.id} book={book}/>
         ))}
         </div>
-        {loadMoreError && <p>{loadMoreError}</p>}
+        {loadMoreError && <p className="error-message">{loadMoreError}</p>}
         <button className="loadmore-btn" onClick={()=> {loadMoreBooks()}}>Load more</button>
         </>
 
