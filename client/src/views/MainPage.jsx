@@ -28,6 +28,7 @@ export default function MainPage() {
               ></input>
               <Search aria-label="Search icon" />
             </div>
+
             <button type="submit">Search</button>
           </form>
           <button

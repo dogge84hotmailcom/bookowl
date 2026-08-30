@@ -118,7 +118,7 @@ form {
 
 form input {
   flex-grow: 1;
-  height: 24px;
+  height: 26px;
   border: 1px solid black;
   border-radius: 5px;
   margin: 3px 2px;
@@ -132,7 +132,11 @@ input:focus {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  width: 100%;
+  width: 40%;
+}
+
+.search-container svg {
+  color: white;
 }
 
 .loadmore-btn:hover {
@@ -174,7 +178,8 @@ form button {
   color: var(--accent);
   border: 1px solid black;
   border-radius: 5px;
-  padding: 2px 4px;
+  padding: 2px 6px;
+  margin: 1rem;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
 }
@@ -251,11 +256,22 @@ form button {
 /* VIEWS */
 
 .hero {
+  min-height: 85.5vh;
   background-image: url("");
   background-size: cover;
   background-position: center;
-  min-height: 60vh;
   position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 0;
 }
 
 .hero-overlay {
@@ -265,6 +281,11 @@ form button {
   transform: translate(-50%, -50%);
   text-align: center;
   width: 100%;
+  z-index: 1;
+}
+
+form button {
+  padding: 7px;
 }
 
 .books-grid {
