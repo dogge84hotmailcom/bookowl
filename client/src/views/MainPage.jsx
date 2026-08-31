@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search } from "lucide-react";
 import bookshelf from "../assets/images/peter-herrman-bookshelf.jpg";
-//import readingchair from "../assets/images/vlad-patana-readingchair.jpg";
+import readingchair from "../assets/images/vlad-patana-readingchair.jpg";
 
 export default function MainPage() {
   const [searchInput, setSearchInput] = useState("");
+  const [frameSize, setFrameSize] = useState(window.innerWidth);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setFrameSize(window.innerWidth));
+
+    return () =>
+      window.removeEventListener("resize", () =>
+        setFrameSize(window.innerWidth),
+      );
+  }, []);
 
   function handleSearch(e) {
     e.preventDefault();
@@ -16,7 +26,12 @@ export default function MainPage() {
 
   return (
     <>
-      <div className="hero" style={{ backgroundImage: `url(${bookshelf})` }}>
+      <div
+        className="hero"
+        style={{
+          backgroundImage: `url(${frameSize < 768 ? readingchair : bookshelf})`,
+        }}
+      >
         <div className="hero-overlay">
           <form onSubmit={(e) => handleSearch(e)}>
             <div className="search-container">
