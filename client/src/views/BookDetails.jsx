@@ -96,7 +96,7 @@ export default function BookDetails() {
 
   async function handleSave() {
     try {
-      const result = await fetch("${import.meta.env.VITE_API_URL}/api/saved", {
+      const result = await fetch(`${import.meta.env.VITE_API_URL}/api/saved`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
