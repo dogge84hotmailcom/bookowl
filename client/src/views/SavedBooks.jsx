@@ -9,7 +9,7 @@ export default function SavedBooks() {
   useEffect(() => {
     async function getSavedBooks() {
       try {
-        const result = await fetch("${import.meta.env.VITE_API_URL}/api/saved");
+        const result = await fetch(`${import.meta.env.VITE_API_URL}/api/saved`);
         if (!result.ok) {
           throw new Error("Could not fetch saved books");
         }
