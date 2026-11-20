@@ -11,6 +11,14 @@ router.post("/explain", async (req, res) => {
     // 1. ta emot det frontend skickade
     const { title, description } = req.body;
 
+    // tillfälligt svar när Gemini ligger nere
+    if (process.env.AI_MOCK === "true") {
+      return res.json({
+        reason:
+          "Det här är ett testsvar: boken passar dig om du gillar stora världar.",
+      });
+    }
+
     // 2. bygg prompten
     const prompt = `Förklara kort på svenska varför boken "${title}" kan passa en läsare. Beskrivning: ${description}`;
 

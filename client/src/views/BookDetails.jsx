@@ -10,6 +10,9 @@ export default function BookDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isSaved, setIsSaved] = useState(false);
+  const [explanation, setExplanation] = useState("");
+  const [explanationLoading, setExplanationLoading] = useState(false);
+  const [explanationError, setExplanationError] = useState(null);
 
   function handleSimilar() {
     console.log(book.volumeInfo.categories);
@@ -133,6 +136,37 @@ export default function BookDetails() {
     }
   }
 
+  async function bookExplanation() {
+    setExplanationLoading(true);
+    setExplanationError(null);
+
+    try {
+      const result = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/ai/explain`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: book.volumeInfo.title,
+            description: book.volumeInfo.description ?? "",
+          }),
+        },
+      );
+      console.log(result);
+      if (!result.ok) throw new Error("Could not call LLM");
+
+      const data = await result.json();
+      setExplanation(data.reason);
+    } catch (err) {
+      console.error(err.message);
+      setExplanationError("There was a problem with fetching this data");
+    } finally {
+      setExplanationLoading(false);
+    }
+  }
+
   return (
     <div className="details-container">
       {loading && <p>Loading book...</p>}
@@ -144,7 +178,18 @@ export default function BookDetails() {
           <h2>{book.volumeInfo.authors?.[0]}</h2>
           <p>{book.volumeInfo.publishedDate}</p>
           <div className="details-img-desc-btn">
-            <p>{book.volumeInfo.description?.replace(/<[^>]*>/g, " ")}</p>
+            <div className="description-box">
+              <p>{book.volumeInfo.description?.replace(/<[^>]*>/g, " ")}</p>
+              {(explanationLoading || explanationError || explanation) && (
+                <div className="explanation-box">
+                  {explanationLoading && <p>Thinking...</p>}
+                  {explanationError && (
+                    <p className="error-message">{explanationError}</p>
+                  )}
+                  {explanation && <p>{explanation}</p>}
+                </div>
+              )}
+            </div>
             <div className="details-img-btn">
               <img
                 src={book.volumeInfo.imageLinks?.thumbnail}
@@ -166,6 +211,12 @@ export default function BookDetails() {
                 )}
                 <button className="details-btn" onClick={() => handleSimilar()}>
                   Find similar
+                </button>
+                <button
+                  className="details-btn"
+                  onClick={() => bookExplanation()}
+                >
+                  Why read this
                 </button>
               </div>
             </div>
